@@ -24,6 +24,7 @@ async function sendCommand(command) {
 }
 
 const app = express();
+app.use(express.static("./web/"));
 
 app.get("/left", async (req, res) => {
   await sendCommand("LEFT");

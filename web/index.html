@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Camera controls</title>
+  </head>
+  <body>
+    <button onclick="sendCommand('left')">Left</buttono>
+    <button onclick="sendCommand('right')">Right</button>
+    <button onclick="sendCommand('up')">Up</button>
+    <button onclick="sendCommand('down')">Down</button>
+
+    <script>
+      async function sendCommand(command) {
+        fetch("/" + command);
+      }
+    </script>
+  </body>
+</html>
