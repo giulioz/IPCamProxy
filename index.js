@@ -7,7 +7,7 @@ const vlcProcess = spawn("vlc", [
   "-Idummy",
   `rtsp://${process.env.CAMERA_IP}/onvif1`,
   "--sout",
-  `#transcode{vcodec=h264,vb=0,scale=0,acodec=mp4a,ab=128,channels=2,samplerate=44100}:http{mux=ffmpeg{mux=flv},dst=:${
+  `#transcode{vcodec=theo,vb=1024,channels=1,ab=128,samplerate=44100}:http{dst=:${
     process.env.VIDEO_PORT
   }/}`
 ]);
