@@ -11,6 +11,12 @@ const vlcProcess = spawn("vlc", [
     process.env.VIDEO_PORT
   }/}`
 ]);
+vlcProcess.stdout.on("data", data => {
+  console.log(data.toString());
+});
+vlcProcess.stderr.on("data", data => {
+  console.error(data.toString());
+});
 
 function commandString(ip, command) {
   return `SET_PARAMETER rtsp://${ip}/onvif1 RTSP/1.0\nCSeq: 50\nContent-length: strlen(Content-type)\nContent-type: ptzCmd:${command}\n`;
