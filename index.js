@@ -54,4 +54,4 @@ app.get("/down", async (req, res) => {
   res.sendStatus(200);
 });
 
-app.listen(API_PORT);
+app.listen(process.env.API_PORT);

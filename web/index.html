@@ -6,10 +6,13 @@
     <title>Camera controls</title>
   </head>
   <body>
-    <button onclick="sendCommand('left')">Left</buttono>
-    <button onclick="sendCommand('right')">Right</button>
-    <button onclick="sendCommand('up')">Up</button>
-    <button onclick="sendCommand('down')">Down</button>
+    <div><video autoplay>
+        <source src=":8081" type="video/mp4">
+      </video></div>
+    <div><button onclick="sendCommand('left')">Left</buttono>
+      <button onclick="sendCommand('right')">Right</button>
+      <button onclick="sendCommand('up')">Up</button>
+      <button onclick="sendCommand('down')">Down</button></div>
 
     <script>
       async function sendCommand(command) {
