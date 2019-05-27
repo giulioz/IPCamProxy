@@ -7,7 +7,7 @@ const vlcProcess = spawn("vlc", [
   "-Idummy",
   `rtsp://${process.env.CAMERA_IP}/onvif1`,
   "--sout",
-  `--sout=#transcode{vcodec=h264,vb=0,scale=0,acodec=mp4a,ab=128,channels=2,samplerate=44100}:http{mux=ffmpeg{mux=flv},dst=addr:--sout=#transcode{vcodec=h264,vb=0,scale=0,acodec=mp4a,ab=128,channels=2,samplerate=44100}:http{mux=ffmpeg{mux=flv},dst=:${
+  `#transcode{vcodec=h264,vb=0,scale=0,acodec=mp4a,ab=128,channels=2,samplerate=44100}:http{mux=ffmpeg{mux=flv},dst=:${
     process.env.VIDEO_PORT
   }/}`
 ]);
@@ -57,4 +57,4 @@ app.get("/down", async (req, res) => {
 });
 
 app.listen(process.env.API_PORT);
-vlcProcess.kill("SIGTERM");
+// vlcProcess.kill("SIGTERM");
