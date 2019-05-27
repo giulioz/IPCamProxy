@@ -16,7 +16,6 @@ async function sendCommand(command) {
     });
 
     client.on("data", data => {
-      console.log(data.toString());
       resolve();
       client.destroy();
     });
