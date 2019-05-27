@@ -11,9 +11,7 @@ const vlcProcess = spawn("vlc", [
     process.env.VIDEO_W
   },height=${
     process.env.VIDEO_H
-  }}:standard{access=http{mime=multipart/x-mixed-replace;boundary=--7b3cc56e5f51db803f790dad720ed50a},mux=mpjpeg,dst=:${
-    process.env.VIDEO_PORT
-  }/}`
+  }}:standard{access=http{mime=mp4},mux=mp4,dst=:${process.env.VIDEO_PORT}/}`
 ]);
 
 function commandString(ip, command) {
