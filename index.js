@@ -51,3 +51,4 @@ app.get("/down", async (req, res) => {
 });
 
 app.listen(process.env.API_PORT);
+vlcProcess.kill("SIGTERM");
