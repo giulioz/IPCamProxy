@@ -6,13 +6,17 @@
     <title>Camera controls</title>
   </head>
   <body>
-    <div><video autoplay>
-        <source src=":8081" type="video/mp4">
-      </video></div>
-    <div><button onclick="sendCommand('left')">Left</buttono>
+    <div>
+      <video autoplay>
+        <source src="http://videoproxy.lan:8081" type="video/mp4" />
+      </video>
+    </div>
+    <div>
+      <button onclick="sendCommand('left')">Left</button>
       <button onclick="sendCommand('right')">Right</button>
       <button onclick="sendCommand('up')">Up</button>
-      <button onclick="sendCommand('down')">Down</button></div>
+      <button onclick="sendCommand('down')">Down</button>
+    </div>
 
     <script>
       async function sendCommand(command) {
