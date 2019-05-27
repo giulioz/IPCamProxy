@@ -1,7 +1,8 @@
 const net = require("net");
 const express = require("express");
+require("dotenv").config();
 
-const ip = "192.168.16.252";
+const ip = process.env.CAMERA_IP;
 
 function commandString(ip, command) {
   return `SET_PARAMETER rtsp://${ip}/onvif1 RTSP/1.0\nCSeq: 50\nContent-length: strlen(Content-type)\nContent-type: ptzCmd:${command}\n`;
@@ -11,10 +12,11 @@ async function sendCommand(command) {
   return new Promise(resolve => {
     const client = new net.Socket();
     client.connect(554, ip, () => {
-      client.write(commandString(command));
+      client.write(commandString(ip, command));
     });
 
     client.on("data", data => {
+      console.log(data.toString());
       resolve();
       client.destroy();
     });
